@@ -2,19 +2,22 @@
 
 # Step 1: Ingestion / Pre-processing
 pypdf>=3.0.0                    # PDF parsing
+unstructured>=0.7.0             # Document handling
 Pillow>=9.0.0                   # Image processing
 pytesseract>=0.3.10             # OCR
 transformers>=4.30.0            # BLIP image captioning
 torch>=2.0.0                    # PyTorch (transformers dependency)
 openai-whisper>=20230314        # Audio transcription
 opencv-python>=4.7.0            # Video processing
+ffmpeg-python>=0.2.0            # Media processing
 
 # Step 2: Representation & Indexing
-sentence-transformers>=2.2.0    # Text embedding
+sentence-transformers>=2.2.0   # Text embedding
 faiss-cpu>=1.7.4               # Vector retrieval (use faiss-gpu if GPU available)
 rank-bm25>=0.2.2               # BM25 retrieval
 numpy>=1.24.0                  # Numerical computation
 
+# Step 3: Query Fusion / LLM
 
 # Development Tools
 jupyter>=1.0.0                 # Jupyter notebook

@@ -1,7 +1,7 @@
-from text_ingest import ingest_text
-from image_ingest import ingest_images
-from audio_ingest import ingest_audio
-from video_ingest import ingest_video
+from .text_ingest import ingest_text
+from .image_ingest import ingest_images
+from .audio_ingest import ingest_audio
+from .video_ingest import ingest_video
 
 def run_ingestion(file_path: str, file_type: str):
     """

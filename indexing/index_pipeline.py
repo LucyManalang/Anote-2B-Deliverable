@@ -10,10 +10,10 @@ from typing import List, Dict, Optional
 # Add parent directory to path for importing ingestion module
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from embedder import Embedder
-from bm25_retriever import BM25Retriever
-from vector_store import FAISSVectorStore
-from hybrid_retriever import HybridRetriever
+from .embedder import Embedder
+from .bm25_retriever import BM25Retriever
+from .vector_store import FAISSVectorStore
+from .hybrid_retriever import HybridRetriever
 
 
 class IndexPipeline:
@@ -88,14 +88,14 @@ class IndexPipeline:
     
     def index_from_ingestion(
         self,
-        file_paths: List[Dict],
+        files: List[Dict],
         use_ingestion: bool = True
     ):
         """
         Index directly from file paths (calls ingestion module)
         
         Args:
-            file_paths: List of files, each element is {'path': str, 'type': str}
+            files: List of files, each element is {'path': str, 'type': str}
                        type can be 'text', 'image', 'audio', 'video'
             use_ingestion: Whether to use ingestion module (default True)
         """
@@ -110,10 +110,10 @@ class IndexPipeline:
                 "Cannot import ingestion module. Please ensure ingestion directory exists with necessary files."
             )
         
-        print(f"Ingesting data from {len(file_paths)} files...")
+        print(f"Ingesting data from {len(files)} files...")
         
         # Run ingestion
-        documents = run_all(file_paths)
+        documents = run_all(files)
         
         print(f"✓ Ingestion complete, obtained {len(documents)} document chunks\n")
         
