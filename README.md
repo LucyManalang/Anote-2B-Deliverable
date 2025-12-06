@@ -7,7 +7,7 @@
 | Name          | GitHub Handle | Contribution |
 | ------------- | ------------- | ------------ |
 | Lucy Manalang | @LucyManalang |              |
-|               |               |              |
+| Yidian Chen   | @Llawlietcyd  |              |
 |               |               |              |
 |               |               |              |
 
