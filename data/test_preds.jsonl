@@ -1,0 +1,2 @@
+{"image_id":"data/image_test_1.jpg","boxes":[[55,55,290,290]],"labels":["tiger"],"confidence":[0.9]}
+{"image_id":"data/image_test_2.jpg","boxes":[[60,80,210,240]],"labels":["mug"],"confidence":[0.85]}

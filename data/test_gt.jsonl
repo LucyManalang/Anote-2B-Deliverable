@@ -1,0 +1,2 @@
+{"image_path":"data/image_test_1.jpg","labels":["tiger"],"bboxes":[[50,50,300,300,"tiger"]]}
+{"image_path":"data/image_test_2.jpg","labels":["mug"],"bboxes":[[70,70,200,250,"mug"]]}

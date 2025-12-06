@@ -2,24 +2,38 @@
 
 # Step 1: Ingestion / Pre-processing
 pypdf>=3.0.0                    # PDF parsing
-unstructured>=0.7.0             # Document handling
+unstructured>=0.7.0             # Document handling (Markdown/HTML/etc.)
 Pillow>=9.0.0                   # Image processing
-pytesseract>=0.3.10             # OCR
-transformers>=4.30.0            # BLIP image captioning
-torch>=2.0.0                    # PyTorch (transformers dependency)
-openai-whisper>=20230314        # Audio transcription
-opencv-python>=4.7.0            # Video processing
-ffmpeg-python>=0.2.0            # Media processing
+pytesseract>=0.3.10             # OCR for images/PDFs
+transformers>=4.35.0            # BLIP captioning + general models
+torch>=2.0.0                    # Required for Transformers & CV models
+openai-whisper>=20230314        # Audio transcription (Whisper ASR)
+opencv-python>=4.7.0            # Video frame extraction
+ffmpeg-python>=0.2.0            # Media processing wrapper for ffmpeg
 
 # Step 2: Representation & Indexing
-sentence-transformers>=2.2.0   # Text embedding
-faiss-cpu>=1.7.4               # Vector retrieval (use faiss-gpu if GPU available)
-rank-bm25>=0.2.2               # BM25 retrieval
-numpy>=1.24.0                  # Numerical computation
+sentence-transformers>=2.2.0    # Text embeddings
+faiss-cpu>=1.7.4                # Vector retrieval (CPU build)
+rank-bm25>=0.2.2                # BM25 retrieval
+numpy>=1.24.0                   # Numerical utilities
+pandas>=2.0.0                   # Table handling for manifests & metrics
 
 # Step 3: Query Fusion / LLM
+# Ollama backend requires *no pip install*
+requests>=2.31.0                # For HTTP calls to Ollama server
 
-# Development Tools
-jupyter>=1.0.0                 # Jupyter notebook
-matplotlib>=3.7.0              # Visualization
-tqdm>=4.65.0                   # Progress bar
+# Computer Vision SDK
+ultralytics>=8.0.0              # YOLOv8 training + prediction
+groundingdino-py>=0.4.0         # Grounding DINO (open-source wrapper)
+torchvision>=0.15.0             # Faster R-CNN support
+pycocotools>=2.0.7              # COCO evaluation + dataset conversion
+
+# Evaluation Pipeline
+matplotlib>=3.7.0               # Confusion matrix visualization
+seaborn>=0.12.0                 # Nicer metrics plots (optional but helpful)
+tqdm>=4.65.0                    # Progress bars
+scikit-learn>=1.2.0             # Metrics (F1, accuracy, confusion matrix)
+rouge-score>=0.1.2              # ROUGE for generation evaluation
+
+# Development / Optional
+jupyter>=1.0.0                  # Jupyter notebooks for experiments

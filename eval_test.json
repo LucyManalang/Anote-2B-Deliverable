@@ -1,0 +1,8 @@
+[
+  {
+    "id": "imgtest1",
+    "question": "What does the document say?",
+    "gold_answer": "This is a placeholder.",
+    "gold_context_ids": [1]
+  }
+]

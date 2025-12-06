@@ -1,0 +1,12 @@
+[
+  {
+    "id": "testcv1",
+    "question": "What is shown in the images?",
+    "gold_answer": "These are test images.",
+    "gold_context_ids": [1],
+    
+    "gt_manifest": "data/test_gt.jsonl",
+    "cv_predictions": "data/test_preds.jsonl",
+    "label_list": ["tiger","mug"]
+  }
+]
