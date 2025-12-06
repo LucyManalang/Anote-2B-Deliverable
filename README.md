@@ -4,12 +4,12 @@
 
 ### 👥 **Team Members**
 
-| Name          | GitHub Handle | Contribution |
-| ------------- | ------------- | ------------ |
-| Lucy Manalang | @LucyManalang |              |
-| Yidian Chen   | @Llawlietcyd  |              |
-|               |               |              |
-|               |               |              |
+| Name          | GitHub Handle | Contribution                              |
+| ------------- | ------------- | ----------------------------------------- |
+| Lucy Manalang | @LucyManalang |                                           |
+| Yidian Chen   | @Llawlietcyd  |                                           |
+|Sweta Chivukula|@SwetaChivukula| Audio normalization & evaluation pipeline |
+|               |               |                                           |
 
 ---
 
