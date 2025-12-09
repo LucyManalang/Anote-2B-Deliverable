@@ -135,7 +135,23 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--eval_json", help="path to evaluation json containing samples", required=False)
     parser.add_argument("--output", help="output report path", default="evaluation_report.json")
+    parser.add_argument("--generate", help="generate synthetic eval set", action="store_true")
+    parser.add_argument("--num_samples", help="number of samples to generate", type=int, default=20)
     args = parser.parse_args()
+
+    # Generate synthetic eval set if requested
+    if args.generate:
+        try:
+            from synthetic_data import generate_rag_eval_set
+            print(f"Generating {args.num_samples} synthetic evaluation samples...")
+            eval_path = generate_rag_eval_set(
+                num_samples=args.num_samples,
+                output_path=args.eval_json or "synthetic_rag_eval.json"
+            )
+            args.eval_json = eval_path
+        except Exception as e:
+            print(f"Failed to generate synthetic data: {e}")
+            print("Falling back to example sample...")
 
     # Example usage if no eval_json provided: create a tiny sample
     if not args.eval_json:
@@ -149,6 +165,17 @@ if __name__ == "__main__":
 
     # initialize pipeline + engine (assumes indices already built)
     idx = IndexPipeline()
+    
+    # Try to load existing index
+    try:
+        if os.path.exists("vector_index.index"):
+            idx.vector_store.load("vector_index")
+            print("[OK] Loaded existing index")
+        else:
+            print("[WARNING] No index found. Please run main.py first to build the index.")
+    except Exception as e:
+        print(f"[WARNING] Could not load index: {e}")
+    
     qeng = QueryEngine(idx, llm_backend="ollama", model="llama3.2")
 
     evaluator = EvaluationPipeline(idx, qeng)

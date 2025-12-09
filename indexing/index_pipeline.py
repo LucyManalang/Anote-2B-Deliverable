@@ -39,7 +39,7 @@ class IndexPipeline:
         
         # Create embedder
         self.embedder = Embedder(model_name=embedding_model)
-        print(f"✓ Embedder loaded: {embedding_model} (dimension: {self.embedder.get_dimension()})")
+        print(f"[OK] Embedder loaded: {embedding_model} (dimension: {self.embedder.get_dimension()})")
         
         # Create retrievers
         self.bm25_retriever = BM25Retriever()
@@ -56,7 +56,7 @@ class IndexPipeline:
             alpha=alpha
         )
         
-        print("✓ Index pipeline initialization complete\n")
+        print("[OK] Index pipeline initialization complete\n")
     
     def index_documents(self, documents: List[Dict]):
         """
@@ -73,18 +73,18 @@ class IndexPipeline:
         print(f"Starting to index {len(documents)} documents...")
         
         # 1. Index to BM25
-        print("  → Creating BM25 index...")
+        print("  -> Creating BM25 index...")
         self.bm25_retriever.index(documents)
         
         # 2. Generate embeddings and index to vector store
-        print("  → Generating text embeddings...")
+        print("  -> Generating text embeddings...")
         texts = [doc["text"] for doc in documents]
         embeddings = self.embedder.embed_batch(texts, batch_size=32)
         
-        print("  → Adding to vector store...")
+        print("  -> Adding to vector store...")
         self.vector_store.add(embeddings, documents)
         
-        print("✓ Indexing complete!\n")
+        print("[OK] Indexing complete!\n")
     
     def index_from_ingestion(
         self,
@@ -115,7 +115,7 @@ class IndexPipeline:
         # Run ingestion
         documents = run_all(files)
         
-        print(f"✓ Ingestion complete, obtained {len(documents)} document chunks\n")
+        print(f"[OK] Ingestion complete, obtained {len(documents)} document chunks\n")
         
         # Index documents
         self.index_documents(documents)
@@ -185,7 +185,7 @@ class IndexPipeline:
         # BM25 index can be quickly rebuilt, not saving here
         # Can use pickle to save if needed
         
-        print(f"✓ Index saved to: {save_dir}")
+        print(f"[OK] Index saved to: {save_dir}")
     
     def load(self, save_dir: str):
         """
@@ -197,7 +197,7 @@ class IndexPipeline:
         vector_path = os.path.join(save_dir, "vector_store")
         self.vector_store.load(vector_path)
         
-        print(f"✓ Index loaded from {save_dir}")
+        print(f"[OK] Index loaded from {save_dir}")
     
     def get_stats(self) -> Dict:
         """

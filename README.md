@@ -65,6 +65,22 @@ The system will:
 3. Run a sample query using the retrieved context
 4. Produce an answer with citations
 
+### 6. Generate Synthetic Data (Optional)
+
+Generate synthetic datasets for training and evaluation:
+
+`python synthetic_data/example_usage.py`
+
+Or run the full synthetic data demo:
+
+`python demo_synthetic.py`
+
+Features:
+- Generate object detection datasets with bounding boxes
+- Create RAG evaluation sets with Q&A pairs
+- Generate text, audio, and video metadata
+- Automatic train/validation/test splits
+
 ---
 
 ## **Project Overview**
@@ -143,6 +159,30 @@ EDA focused on verifying:
 
 ---
 
+## **Synthetic Data Generation**
+
+The project includes a SyntheticDataGen module for generating training and evaluation datasets:
+
+```python
+from synthetic_data import generate, generate_cv_dataset
+
+# Generate object detection dataset
+manifests = generate_cv_dataset(
+    classes=["tiger", "lion", "leopard"],
+    num_images=100,
+    resolution="640x480",
+    output_dir="synthetic_data/outputs"
+)
+
+# Generate RAG evaluation set
+from synthetic_data import generate_rag_eval_set
+eval_path = generate_rag_eval_set(num_samples=50)
+```
+
+See `synthetic_data/README.md` for full API documentation.
+
+---
+
 ## **Next Steps**
 
 - Build a front-end UI for multimodal upload + querying.
@@ -150,6 +190,7 @@ EDA focused on verifying:
 - Integrate a cross-encoder for improved re-ranking.
 - Expand to long-context LLMs.
 - Explore multimodal embedding models.
+- Connect to Anote AI's production SyntheticDataGen API.
 
 ---
 

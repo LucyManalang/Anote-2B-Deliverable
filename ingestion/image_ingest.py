@@ -23,7 +23,7 @@ _blip_model = None
 def load_blip():
     global _blip_processor, _blip_model
     if _blip_processor is None or _blip_model is None:
-        print("→ Loading BLIP caption model (fallback)…")
+        print("-> Loading BLIP caption model (fallback)...")
         _blip_processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
         _blip_model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
     return _blip_processor, _blip_model
@@ -47,10 +47,10 @@ def ingest_images(image_paths: List[str], manual_captions_path="data/image_capti
 
         if key1 in manual_captions:
             caption = manual_captions[key1]
-            print(f"✓ Using MANUAL caption for {path}")
+            print(f"[OK] Using MANUAL caption for {path}")
         elif key2 in manual_captions:
             caption = manual_captions[key2]
-            print(f"✓ Using MANUAL caption for {path}")
+            print(f"[OK] Using MANUAL caption for {path}")
         else:
             # Fallback to BLIP captioning
             processor, model = load_blip()
@@ -58,7 +58,7 @@ def ingest_images(image_paths: List[str], manual_captions_path="data/image_capti
             inputs = processor(image, return_tensors="pt")
             out = model.generate(**inputs)
             caption = processor.decode(out[0], skip_special_tokens=True)
-            print(f"✦ BLIP caption for {path}: {caption}")
+            print(f"[BLIP] caption for {path}: {caption}")
 
         docs.append({
             "id": path,

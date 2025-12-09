@@ -15,6 +15,7 @@ from pathlib import Path
 import os
 import json
 from typing import Dict, List
+from PIL import Image
 from .utils import load_jsonl, save_jsonl, ensure_dir, coco_box_from_xyxy
 
 
@@ -48,6 +49,15 @@ def upload(dataset_name: str, data_path: str, split: str, out_root: str = "datas
         # If bboxes provided, convert to YOLO normalized format (x_center, y_center, w, h) normalized
         w = row.get("width", None)
         h = row.get("height", None)
+        
+        # Try to read image dimensions if missing
+        if (w is None or h is None) and image_path.exists():
+            try:
+                with Image.open(image_path) as img:
+                    w, h = img.size
+            except Exception as e:
+                print(f"Warning: Could not read image {image_path} to determine size: {e}")
+
         lines = []
         for bbox in row.get("bboxes", []):
             x1, y1, x2, y2, cls = bbox

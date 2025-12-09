@@ -135,21 +135,28 @@ QUESTION:
 Now provide a grounded answer:
 """
 
-        import subprocess
-
+        # Use Ollama API endpoint instead of subprocess
+        import requests
+        import json
+        
         try:
-            result = subprocess.run(
-                ["ollama", "run", self.model],
-                input=prompt.encode("utf-8"),
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                check=True
+            response = requests.post(
+                "http://localhost:11434/api/generate",
+                json={
+                    "model": self.model,
+                    "prompt": prompt,
+                    "stream": False
+                },
+                timeout=120
             )
-        except subprocess.CalledProcessError as e:
-            raise RuntimeError(f"Ollama error: {e.stderr.decode()}")
-
-        # Ollama returns plain text
-        output_text = result.stdout.decode().strip()
+            response.raise_for_status()
+            output_text = response.json().get("response", "").strip()
+            
+            if not output_text:
+                output_text = "Based on the retrieved context, I cannot provide a complete answer."
+                
+        except requests.exceptions.RequestException as e:
+            raise RuntimeError(f"Ollama API error: {e}")
 
         return {
             "answer": output_text,

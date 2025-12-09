@@ -10,4 +10,10 @@ This package provides simple wrappers to:
 Note: ultralytics (YOLO) is recommended for quick experiments:
     pip install ultralytics
 """
+
+from .upload import upload
+from .train import train
+from .predict import predict
+from .evaluate import evaluate
+
 __all__ = ["upload", "train", "predict", "evaluate", "utils"]

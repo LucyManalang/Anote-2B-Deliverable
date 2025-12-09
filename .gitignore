@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Temporary output files
+demo_output.txt
+synthetic_output.txt
+*_output.txt
+
+# Generated predictions and evaluations
+demo_all_preds.jsonl
+*_preds.jsonl
+evaluation_report.json
+eval_report.json
+eval_test.json
+eval_test_cv.json
+synthetic_rag_eval.json
+final_eval_report.json
+
+# Vector indices (can be regenerated)
+vector_index.index
+vector_index.pkl
+*.index
+*.pkl
+
+# Training runs and checkpoints
+runs/
+demo_eval_results/
+cv_eval_testcv1/
+test_output/
+
+# Synthetic data outputs (large files)
+synthetic_data/outputs/
+
+# Model weights (if you don't want to commit large models)
+# yolov8n.pt
+*.pt
+*.pth
+*.weights
+
+# Dataset directories (if large)
+# datasets/
+
+# Data directory (if contains large files)
+# data/
