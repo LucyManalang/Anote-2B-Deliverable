@@ -9,7 +9,7 @@
 | Lucy Manalang | @LucyManalang |                                           |
 | Yidian Chen   | @Llawlietcyd  |                                           |
 |Sweta Chivukula|@SwetaChivukula| Audio normalization & evaluation pipeline |
-|               |               |                                           |
+|Sue Lyn Roberts| @Suelyn-R     |                                           |
 
 ---
 
