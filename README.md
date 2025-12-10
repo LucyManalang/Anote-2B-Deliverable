@@ -7,7 +7,7 @@
 | Name          | GitHub Handle | Contribution                              |
 | ------------- | ------------- | ----------------------------------------- |
 | Lucy Manalang | @LucyManalang |                                           |
-| Yidian Chen   | @Llawlietcyd  |                                           |
+| Yidian Chen   | @Llawlietcyd  |Built a multimodal RAG system with hybrid retrieval, synthetic data generation, and automated CV model training.       |
 |Sweta Chivukula|@SwetaChivukula| Audio normalization & evaluation pipeline |
 |Sue Lyn Roberts| @Suelyn-R     |                                           |
 
