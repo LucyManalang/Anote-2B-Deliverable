@@ -10,7 +10,7 @@
 | Yidian Chen   | @Llawlietcyd  |Built a multimodal RAG system with hybrid retrieval, synthetic data generation, and automated CV model training.       |
 |Sweta Chivukula|@SwetaChivukula| Audio normalization & evaluation pipeline |
 |Sue Lyn Roberts| @Suelyn-R     |                                           |
-|Eesha Desai    | @             |                                           |
+|Eesha Desai    | @eeshadesai   |                                           |
 |Jay Trivedi    | @Jay-41       |                                           |
 ---
 
