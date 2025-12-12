@@ -6,12 +6,12 @@
 
 | Name          | GitHub Handle | Contribution                              |
 | ------------- | ------------- | ----------------------------------------- |
-| Lucy Manalang | @LucyManalang |                                           |
-| Yidian Chen   | @Llawlietcyd  |Built a multimodal RAG system with hybrid retrieval, synthetic data generation, and automated CV model training.       |
-|Sweta Chivukula|@SwetaChivukula| Audio normalization & evaluation pipeline |
-|Sue Lyn Roberts| @Suelyn-R     |                                           |
-|Eesha Desai    | @eeshadesai   |                                           |
-|Jay Trivedi    | @Jay-41       |                                           |
+| Lucy Manalang | @LucyManalang |  Project coordination, system design discussions, and presentation leadership; helped align technical scope with AI Studio challenge goals.       |
+| Yidian Chen   | @Llawlietcyd  |Built a multimodal RAG system with hybrid retrieval, synthetic data generation, and automated CV model training.                                   |
+|Sweta Chivukula|@SwetaChivukula| Audio normalization & evaluation pipeline                                                                                                         |
+|Sue Lyn Roberts| @Suelyn-R     | Assisted with data organization, documentation structure, and testing of multimodal ingestion workflows                                           |
+|Eesha Desai    | @eeshadesai   | Supported research on multimodal retrieval approaches, helped evaluate system outputs                                                             |
+|Jay Trivedi    | @Jay-41       | Assisted with experimentation, debugging, and integration testing across modalities                                                               |
 ---
 
 ## 🎯 **Project Highlights**
